@@ -1,0 +1,190 @@
+-- sql: dml-insert
+use casa_da_vovo;
+insert into funcionario
+	(cpf,nome,genero,dataNasc,email,salario, `status`)
+    value("147.741.771-41", "Thiago Mariano", 'M','2002-01-01',"donzelo@gmail.com", 1890.00, 1);
+    
+
+insert into funcionario
+	(cpf,nome,genero,dataNasc,email,salario, `status`)
+    values
+    ("123.456.789-01", "João Silva", 'M', '1985-07-15', "joao.silva@email.com", 4500.00, 1),
+	("234.567.890-02", "Maria Oliveira", 'F', '1992-03-22', "maria.oliveira@email.com", 5200.00, 1),
+	("345.678.901-03", "Carlos Souza", 'M', '1988-11-10', "carlos.souza@email.com", 6100.00, 1),
+	("456.789.012-04", "Ana Lima", 'F', '1995-09-05', "ana.lima@email.com", 4300.00, 1),
+	("567.890.123-05", "Fernando Costa", 'M', '1980-06-30', "fernando.costa@email.com", 7000.00, 1),
+	("678.901.234-06", "Juliana Martins", 'F', '1991-12-25', "juliana.martins@email.com", 4800.00, 1),
+	("789.012.345-07", "Ricardo Alves", 'M', '1983-04-18', "ricardo.alves@email.com", 5300.00, 1),
+	("890.123.456-08", "Beatriz Rocha", 'F', '1997-08-12', "beatriz.rocha@email.com", 3900.00, 1),
+	("901.234.567-09", "Gabriel Ferreira", 'M', '1986-02-14', "gabriel.ferreira@email.com", 5700.00, 1),
+	("012.345.678-10", "Patrícia Mendes", 'F', '1994-07-07', "patricia.mendes@email.com", 4200.00, 1),
+	("123.987.654-11", "Roberto Nunes", 'M', '1982-10-22', "roberto.nunes@email.com", 6400.00, 1),
+	("234.876.543-12", "Camila Ribeiro", 'F', '1990-05-19', "camila.ribeiro@email.com", 5000.00, 1),
+	("345.765.432-13", "Eduardo Santana", 'M', '1989-03-30', "eduardo.santana@email.com", 5500.00, 1),
+	("456.654.321-14", "Larissa Duarte", 'F', '1996-11-08', "larissa.duarte@email.com", 4700.00, 1),
+	("567.543.210-15", "Vinícius Barbosa", 'M', '1987-01-25', "vinicius.barbosa@email.com", 5800.00, 1),
+	("678.432.109-16", "Tatiane Silva", 'F', '1993-09-17', "tatiane.silva@email.com", 4100.00, 1),
+	("789.321.098-17", "Gustavo Correia", 'M', '1984-12-09', "gustavo.correia@email.com", 6000.00, 1),
+	("890.210.987-18", "Natália Castro", 'F', '1998-06-02', "natalia.castro@email.com", 3800.00, 1),
+	("901.109.876-19", "Felipe Moreira", 'M', '1981-04-15', "felipe.moreira@email.com", 6900.00, 1),
+	("012.908.765-20", "Vanessa Teixeira", 'F', '1999-07-23', "vanessa.teixeira@email.com", 4400.00, 1),
+	("123.807.654-21", "André Matos", 'M', '1985-08-31', "andre.matos@email.com", 5900.00, 1),
+	("234.706.543-22", "Renata Figueiredo", 'F', '1991-05-14', "renata.figueiredo@email.com", 4600.00, 1),
+	("345.605.432-23", "Marcos Rezende", 'M', '1989-02-28', "marcos.rezende@email.com", 6200.00, 1),
+	("456.504.321-24", "Bianca Neves", 'F', '1997-10-05', "bianca.neves@email.com", 4000.00, 1);
+    
+insert into endereco
+	(funcionario_cpf, rua, numero, comp, bairro, cidade,uf,cep)
+	values
+    ("012.345.678-10", "Rua da Aurora", 150, NULL, "Boa Vista", "Recife", "PE", "50050-000"),
+	("012.908.765-20", "Avenida Conde da Boa Vista", 2000, NULL, "Boa Vista", "Recife", "PE", "50060-000"),
+	("074.740.774-00", "Rua do Príncipe", 321, NULL, "Santo Amaro", "Recife", "PE", "50100-000"),
+	("123.456.789-01", "Rua do Sol", 45, NULL, "São José", "Recife", "PE", "50010-000"),
+	("123.807.654-21", "Avenida Cruz Cabugá", 789, NULL, "Santo Amaro", "Recife", "PE", "50040-000"),
+	("123.987.654-11", "Rua Imperial", 567, NULL, "São José", "Recife", "PE", "50030-000"),
+	("132.231.312-21", "Rua Benfica", 901, NULL, "Madalena", "Recife", "PE", "50720-001"),
+	("147.741.771-41", "Avenida Norte", 3001, NULL, "Tamarineira", "Recife", "PE", "52050-000"),
+	("234.567.890-02", "Rua da Harmonia", 122, NULL, "Casa Amarela", "Recife", "PE", "52070-000"),
+	("234.706.543-22", "Rua do Futuro", 456, NULL, "Graças", "Recife", "PE", "52020-000"),
+	("234.876.543-12", "Rua Real da Torre", 678, NULL, "Torre", "Recife", "PE", "50710-000"),
+	("345.605.432-23", "Avenida Beira Rio", 980, NULL, "Madalena", "Recife", "PE", "50720-002"),
+	("345.678.901-03", "Rua Carneiro Vilela", 150, NULL, "Espinheiro", "Recife", "PE", "52020-001"),
+	("345.765.432-13", "Rua Padre Roma", 100, NULL, "Boa Vista", "Recife", "PE", "50070-000"),
+	("456.504.321-24", "Rua da Saudade", 75, NULL, "Santo Amaro", "Recife", "PE", "50050-001"),
+	("456.654.321-14", "Avenida Rui Barbosa", 245, NULL, "Graças", "Recife", "PE", "52011-000"),
+	("456.789.012-04", "Rua Joaquim Nabuco", 180, NULL, "Graças", "Recife", "PE", "52020-002"),
+	("567.543.210-15", "Avenida Abdias de Carvalho", 3000, NULL, "Madalena", "Recife", "PE", "50720-003"),
+	("567.890.123-05", "Rua Capitão Lima", 98, NULL, "Santo Amaro", "Recife", "PE", "50030-001"),
+	("678.432.109-16", "Rua José Bonifácio", 88, NULL, "Boa Vista", "Recife", "PE", "50070-001"),
+	("678.901.234-06", "Avenida Caxangá", 4500, NULL, "Iputinga", "Recife", "PE", "50670-000"),
+	("789.012.345-07", "Rua da Palma", 300, NULL, "São José", "Recife", "PE", "50020-000"),
+	("789.321.098-17", "Rua do Aragão", 50, NULL, "Santo Antônio", "Recife", "PE", "50030-002"),
+	("890.123.456-08", "Rua das Ninfas", 345, NULL, "Boa Vista", "Recife", "PE", "50070-002"),
+	("890.210.987-18", "Rua Visconde de Goiana", 27, NULL, "Santo Antônio", "Recife", "PE", "50020-001"),
+	("901.109.876-19", "Avenida Agamenon Magalhães", 1500, NULL, "Boa Vista", "Recife", "PE", "52011-001"),
+	("901.234.567-09", "Rua Gervásio Pires", 123, NULL, "Boa Vista", "Recife", "PE", "50060-001");
+    
+insert into telefone
+	(numero, Funcionario_cpf)
+values
+	("081987654321", "012.345.678-10"),
+	("081912345678", "012.345.678-10"),
+
+	("081998765432", "012.908.765-20"),
+	("081911223344", "012.908.765-20"),
+
+	("081977665544", "074.740.774-00"),
+
+	("081933322211", "123.456.789-01"),
+	("081922233344", "123.456.789-01"),
+
+	("081988776655", "123.807.654-21"),
+
+	("081966554433", "123.987.654-11"),
+	("081955443322", "123.987.654-11"),
+
+	("081911155566", "132.231.312-21"),
+
+	("081977778888", "147.741.771-41"),
+
+	("081911199922", "234.567.890-02"),
+	("081922299933", "234.567.890-02"),
+
+	("081966677788", "234.706.543-22"),
+
+	("081988899900", "234.876.543-12"),
+	("081944455566", "234.876.543-12"),
+
+	("081955556677", "345.605.432-23"),
+
+	("081966667788", "345.678.901-03"),
+	("081922244455", "345.678.901-03"),
+
+	("081977779999", "345.765.432-13"),
+
+	("081933344455", "456.504.321-24"),
+	("081922255566", "456.504.321-24"),
+
+	("081944466677", "456.654.321-14"),
+
+	("081955557788", "456.789.012-04"),
+
+	("081977778899", "567.543.210-15"),
+
+	("081911112233", "567.890.123-05"),
+
+	("081933355577", "678.432.109-16"),
+
+	("081966688899", "678.901.234-06"),
+
+	("081988800011", "789.012.345-07"),
+
+	("081922233311", "789.321.098-17"),
+	("081911122233", "789.321.098-17"),
+
+	("081955566677", "890.123.456-08"),
+
+	("081988811122", "890.210.987-18"),
+
+	("081966699900", "901.109.876-19"),
+	("081977788800", "901.109.876-19"),
+
+	("081922244466", "901.234.567-09");
+
+insert into dependente
+	values 
+    ("102.345.678-90", "Lucas Mendes", "2015-06-10", "M", "Filho", "012.345.678-10"),
+	("103.456.789-01", "Ana Mendes", "2018-09-25", "F", "Filha", "012.345.678-10"),
+
+	("104.567.890-12", "Mateus Teixeira", "2014-03-14", "M", "Filho", "012.908.765-20"),
+
+	("105.678.901-23", "Gabriel Melo", "2016-12-05", "M", "Filho", "074.740.774-00"),
+
+	("106.789.012-34", "Sofia Silva", "2011-07-22", "F", "Filha", "123.456.789-01"),
+	("107.890.123-45", "Isabela Silva", "2013-05-18", "F", "Filha", "123.456.789-01"),
+
+	("108.901.234-56", "Eduardo Matos", "2019-08-30", "M", "Filho", "123.807.654-21"),
+
+	("109.012.345-67", "Beatriz Nunes", "2017-04-10", "F", "Filha", "123.987.654-11"),
+
+	("110.123.456-78", "Felipe Brayner", "2010-11-28", "M", "Filho", "132.231.312-21"),
+
+	("111.234.567-89", "Bruno Mariano", "2015-09-06", "M", "Filho", "147.741.771-41"),
+
+	("112.345.678-90", "Mariana Oliveira", "2012-10-30", "F", "Filha", "234.567.890-02"),
+
+	("113.456.789-01", "Pedro Figueiredo", "2020-01-01", "M", "Filho", "234.706.543-22"),
+
+	("114.567.890-12", "Clara Ribeiro", "2016-07-07", "F", "Filha", "234.876.543-12"),
+
+	("115.678.901-23", "Henrique Rezende", "2011-02-15", "M", "Filho", "345.605.432-23"),
+
+	("116.789.012-34", "Joana Souza", "2018-05-12", "F", "Filha", "345.678.901-03"),
+
+	("117.890.123-45", "Daniel Santana", "2013-06-24", "M", "Filho", "345.765.432-13"),
+
+	("118.901.234-56", "Laura Neves", "2017-03-11", "F", "Filha", "456.504.321-24"),
+
+	("119.012.345-67", "Fernanda Duarte", "2015-09-20", "F", "Filha", "456.654.321-14"),
+
+	("120.123.456-78", "Thiago Lima", "2014-04-08", "M", "Filho", "456.789.012-04"),
+
+	("121.234.567-89", "Juliana Barbosa", "2019-12-02", "F", "Filha", "567.543.210-15"),
+
+	("122.345.678-90", "Rodrigo Costa", "2012-08-17", "M", "Filho", "567.890.123-05"),
+
+	("123.456.789-01", "Camila Silva", "2011-01-30", "F", "Filha", "678.432.109-16"),
+
+	("124.567.890-12", "Vinícius Martins", "2016-11-05", "M", "Filho", "678.901.234-06"),
+
+	("125.678.901-23", "Alice Alves", "2018-07-19", "F", "Filha", "789.012.345-07"),
+
+	("126.789.012-34", "Diego Correia", "2015-06-25", "M", "Filho", "789.321.098-17"),
+
+	("127.890.123-45", "Lívia Rocha", "2014-10-14", "F", "Filha", "890.123.456-08"),
+
+	("128.901.234-56", "Carolina Castro", "2012-05-22", "F", "Filha", "890.210.987-18"),
+
+	("129.012.345-67", "Ricardo Moreira", "2013-09-18", "M", "Filho", "901.109.876-19"),
+
+	("130.123.456-78", "Helena Ferreira", "2017-12-10", "F", "Filha", "901.234.567-09");

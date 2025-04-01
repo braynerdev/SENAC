@@ -1,0 +1,51 @@
+-- SQL: DQL
+
+
+select * from funcionario;
+
+select nome, cpf, dataNasc, genero, email, salario from funcionario;
+
+select nome as "Funcionário" , cpf "CPF", dataNasc as "Data de Nascimento" , genero as "Gênero", email "Email", salario "Salário" from funcionario;
+
+
+select nome as "Funcionário" , cpf "CPF", dataNasc as "Data de Nascimento" , 
+	genero as "Gênero", email "Email", salario "Salário" 
+	from funcionario 
+	order by nome;
+    
+select nome as "Funcionário" , cpf "CPF", dataNasc as "Data de Nascimento" , 
+	genero as "Gênero", email "Email", salario "Salário" 
+	from funcionario 
+	order by salario desc;
+
+select nome as "Funcionário" , cpf "CPF", dataNasc as "Data de Nascimento" , 
+	genero as "Gênero", email "Email", salario "Salário" 
+	from funcionario 
+	order by genero, nome;
+    
+select upper(nome) as "Funcionário" , cpf "CPF", dataNasc as "Data de Nascimento" , 
+	genero as "Gênero", email "Email", salario "Salário" 
+	from funcionario 
+	order by nome;
+    
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	genero as "Gênero", email "Email", salario "Salário" 
+	from funcionario 
+	order by nome;
+
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", salario "Salário" 
+	from funcionario 
+	order by nome;
+
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário" 
+	from funcionario 
+	order by nome;
+    
+select * from dependente;
+
+SELECT upper(nome) "Nome", date_format(dataNasc, "%d/%m/%Y") "Data de Nascimento", cpf "CPF", 
+	replace(replace(genero, "F", "Feminino"), "M", "Masculinno") "Gênero", parentesco "Parentesco", 
+    Funcionario_cpf "Funcionário" from dependente;
+
