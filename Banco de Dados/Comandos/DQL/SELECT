@@ -39,7 +39,7 @@ select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%
 	order by nome;
 
 select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
-	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário" 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário"
 	from funcionario 
 	order by nome;
     
@@ -49,3 +49,75 @@ SELECT upper(nome) "Nome", date_format(dataNasc, "%d/%m/%Y") "Data de Nascimento
 	replace(replace(genero, "F", "Feminino"), "M", "Masculinno") "Gênero", parentesco "Parentesco", 
     Funcionario_cpf "Funcionário" from dependente;
 
+use tropicanatads042;
+
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", concat("R$ ", format(salario, 2, 'de_DE')) "Salário"
+	from funcionario 
+	order by nome;
+    
+SELECT upper(nome) "Nome", date_format(dataNasc, "%d/%m/%Y") "Data de Nascimento", cpf "CPF", 
+	replace(replace(genero, "F", "Feminino"), "M", "Masculinno") "Gênero", parentesco "Parentesco", 
+    Funcionario_cpf "Funcionário" from dependente
+    where genero = 'F';
+    
+SELECT upper(nome) "Nome", date_format(dataNasc, "%d/%m/%Y") "Data de Nascimento", cpf "CPF", 
+	replace(replace(genero, "F", "Feminino"), "M", "Masculinno") "Gênero"
+		from funcionario 
+			where nome like "%thiago%";
+            
+            
+select cpf_passaporte "CPF OU PASSAPORT", 
+    nome "NOME", 
+    date_format(dataNasc, "%d/%m/%Y") "DATA NASCIMENTO", 
+    email "EMAIL", 
+    telefone "TELEFONE" 
+	from hospede
+    where nome like "%aria%"
+    order by nome DESC;
+
+select cpf_passaporte "CPF OU PASSAPORT", 
+    nome "NOME", 
+    date_format(dataNasc, "%d/%m/%Y") "DATA NASCIMENTO", 
+    email "EMAIL", 
+    telefone "TELEFONE" 
+	from hospede
+    where year(dataNasc) <= 1990 and
+	nome like "%lima%"
+    order by nome DESC;
+    
+select cidade "Cidade", count(Funcionario_cpf) "COUNT"
+	from endereco
+    group by cidade;
+    
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário"
+	from funcionario 
+    where salario = (select max(salario) from funcionario);
+  
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário"
+	from funcionario 
+    where salario = (select min(salario) from funcionario);
+
+select avg(salario) from funcionario;
+
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário"
+	from funcionario 
+    where salario <= (select avg(salario) from funcionario);
+
+select date_format(checkIn, "%d/%m/%Y") "Data de entrada", date_format(checkOut, "%d/%m/%Y") "Data de entrada", concat("R$ ",format(valorTotal,2,"de_DE")) "Salario"
+	from hospedagem 
+    where valorTotal >= (select avg(valorTotal) from hospedagem);
+	
+    
+-- qual a quantidade de hospeagem por ano/mes
+
+
+select count(checkin) "COUNT" from hospedagem;
+
+select date_format(checkin, "%m/%Y") "Período", count(checkin) "COUNT"
+	FROM hospedagem
+    group by date_format(checkin, "%m/%Y")
+    order by count(checkin) desc;
