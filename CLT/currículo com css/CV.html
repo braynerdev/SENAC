@@ -14,17 +14,16 @@
 <body>
     <nav>
         <div class="cardNome">
-            <legend>JOÃO VICTOR BRAYNER</legend>
-            <span>Desenvolvedor Full Stack</span>
+            <legend class="animationAparecer">JOÃO VICTOR BRAYNER</legend>
+            <span class="animationAparecer">Desenvolvedor Full Stack</span>
         </div>
     </nav>
     <main>
         <div class="skills">
-            
-            <legend>Minhas Skills</legend>
+            <legend class="animationAparecer">Minhas Skills</legend>
             <div class="content">
                 <div class="css">
-                    <div class="card text-bg-secondary cardSkills">
+                    <div class="card text-bg-secondary animationAparecer cardSkills">
                         <div class="card-body">
                             <img src="static/img/logoCss.png" class="card-img-top logoSkills" alt="logo css">
                             <p class="card-text"><h5>CSS</h5></p>
@@ -32,39 +31,39 @@
                     </div>
                 </div>
                 <div class="html">
-                    <div class="card text-bg-secondary cardSkills">
+                    <div class="card text-bg-secondary animationAparecer cardSkills">
                         <div class="card-body">
                             <img src="static/img/logoHtml.png" class="card-img-top logoSkills" alt="logo css">
                             <p class="card-text"><h5>HTML</h5></p>
                         </div>
                     </div>
                 </div>
-                <div class="js">
-                    <div class="card text-bg-secondary cardSkills">
+                <div class="javaScript">
+                    <div class="card text-bg-secondary animationAparecer cardSkills">
                         <div class="card-body">
                             <img src="static/img/logoJavaScript.png" class="card-img-top logoSkills" alt="logo css">
                             <p class="card-text"><h5>JAVASCRIPT</h5></p>
                         </div>
                     </div>
                 </div>
-                <div class="python">
-                    <div class="card text-bg-secondary cardSkills">
+                <div class="cSharp">
+                    <div class="card text-bg-secondary animationAparecer cardSkills">
                         <div class="card-body">
                             <img src="static/img/logoCsharp.png" class="card-img-top logoSkills" alt="logo css">
                             <p class="card-text"><h5>C#</h5></p>
                         </div>
                     </div>
                 </div>
-                <div class="django">
-                    <div class="card text-bg-secondary cardSkills">
+                <div class="python">
+                    <div class="card text-bg-secondary animationAparecer cardSkills">
                         <div class="card-body">
                             <img src="static/img/logoPython.png" class="card-img-top logoSkills" alt="logo css">
                             <p class="card-text"><h5>PYTHON</h5></p>
                         </div>
                     </div>
                 </div>
-                <div class="c#">
-                    <div class="card text-bg-secondary cardSkills">
+                <div class="django">
+                    <div class="card text-bg-secondary animationAparecer cardSkills">
                         <div class="card-body">
                             <img src="static/img/logoDdjango.png" class="card-img-top logoSkills" alt="logo css">
                             <p class="card-text"><h5>DJANGO</h5></p>
@@ -75,8 +74,8 @@
         </div>
 
         <div class="experiencias">
-            <legend>Experiência</legend>
-            <div class="content">
+            <legend class="animationAparecer">Experiência</legend>
+            <div class="content animationAparecer">
                 Atualmente, sou estagiário no Grande Recife Consórcio de Transportes, atuando como desenvolvedor
                 back-end com o framework Django. Além disso, realizo atividades que envolvem o front-end,
                 ampliando
@@ -84,11 +83,33 @@
                 experiência em desenvolvimento web.
             </div>
         </div>
+
+        <div class="projetos">
+
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visivel');
+                } else {
+                    entry.target.classList.remove('visivel');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('.animationAparecer').forEach(bloco => {
+        observer.observe(bloco);
+    });
+    </script>
 </body>
 
 </html>

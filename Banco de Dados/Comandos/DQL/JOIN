@@ -1,0 +1,38 @@
+-- JOIN
+    
+select upper(nome) as "Funcionário" , cpf "CPF", date_format(dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", email "Email", format(salario, 2, 'de_DE') "Salário",
+    cidade "Cidade",
+    UF "Estados"
+	from funcionario 
+		inner join endereco on Funcionario_cpf = cpf
+        order by nome;
+		
+select upper(f.nome) as "Funcionário" , f.cpf "CPF", date_format(f.dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(f.genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", f.email "Email", format(f.salario, 2, 'de_DE') "Salário",
+    count(d.cpf) "Quantidade de dependente"
+	from funcionario f
+		inner join dependente d on d.Funcionario_cpf = f.cpf
+        group by d.Funcionario_cpf
+        order by count(d.cpf) desc;
+        
+        
+select upper(f.nome) as "Funcionário" , f.cpf "CPF", date_format(f.dataNasc, '%d/%m/%Y') as "Data de Nascimento" , 
+	replace(replace(f.genero, 'F', "Feminino"), 'M', 'Masculino') as "Gênero", f.email "Email", format(f.salario, 2, 'de_DE') "Salário",
+    count(d.cpf) "Quantidade de dependente"
+	from funcionario f
+		left join dependente d on d.Funcionario_cpf = f.cpf
+        group by f.cpf
+        order by count(d.cpf) desc;
+        
+select d.cpf "CPF DO DEPENDENTE", d.nome "NOME", timestampdiff(year,d.dataNasc, now()) "IDADE", replace(replace(d.genero, 'F', "Feminino"), 'M', 'Masculino') "GENERO",
+f.cpf "CPF RESPONSAVEL", f.nome "RESPONSAVEL"
+from dependente d
+	inner join funcionario f on d.Funcionario_cpf = f.cpf
+    order by f.nome;
+        
+
+    
+    
+    
+    

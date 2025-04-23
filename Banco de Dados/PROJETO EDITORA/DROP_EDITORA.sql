@@ -1,0 +1,1 @@
+drop schema editora_pinga;
