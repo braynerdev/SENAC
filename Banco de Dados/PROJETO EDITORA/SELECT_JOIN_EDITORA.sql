@@ -143,7 +143,6 @@ order by nome;
 -- FUNCIONARIOS ATIVOS COM O MAIOR SALARIO
 SELECT idfuncionario "ID FUNCIONÁRIO",
 UPPER(nome) "NOME", 
-CONCAT("R$ ",FORMAT(salario,2,"de_DE")) "MAIOR SALÁRIO",
 regexp_replace(cpf, '([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})', '\\1.\\2.\\3-\\4') "CPF",
 date_format(dt_nascimento, "%d/%m/%Y") "DATA NASCIMENTO", 
 upper(email) "EMAIL", 
