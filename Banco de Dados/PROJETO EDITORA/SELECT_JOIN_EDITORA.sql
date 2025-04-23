@@ -128,7 +128,6 @@ SELECT MIN(salario) "MAIOR SALÁRIO" FROM editora_pinga.funcionario WHERE editor
 -- FUNCIONARIOS ATIVOS COM O MENOR SALARIO
 SELECT idfuncionario "ID FUNCIONÁRIO",
 UPPER(nome) "NOME", 
-CONCAT("R$ ",FORMAT(salario,2,"de_DE")) "MAIOR SALÁRIO",
 regexp_replace(cpf, '([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})', '\\1.\\2.\\3-\\4') "CPF",
 date_format(dt_nascimento, "%d/%m/%Y") "DATA NASCIMENTO", 
 upper(email) "EMAIL", 
@@ -177,6 +176,18 @@ FROM editora_pinga.funcionario f
 inner join editora_pinga.venda v 
 on v.funcionario_idfuncionario = f.idfuncionario
 where v.valor_total = (select max(valor_total) from editora_pinga.venda)
+group by f.nome;
+
+-- MAIOR VALOR DE UMA VENDA DE UM FUNCIONARIO ATIVO
+SELECT 
+upper(f.nome) "NOME", 
+CONCAT("R$ ",FORMAT(MAX(v.valor_total),2,"de_DE")) "MAIOR VENDA",
+date_format(MAX(v.dt_pagamento), "%d/%m/%Y") "DATA PAGAMENTO"
+FROM editora_pinga.funcionario f 
+inner join editora_pinga.venda v 
+on v.funcionario_idfuncionario = f.idfuncionario
+where v.valor_total = (select max(valor_total) from editora_pinga.venda
+							where funcionario_idfuncionario in (select idfuncionario from funcionario where ativo = 1))
 group by f.nome;
 
 
