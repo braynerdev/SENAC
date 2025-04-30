@@ -8,7 +8,9 @@ SELECT count(id_livro) "QTD DE LIVROS CADASTRADAS" FROM editora_pinga.livro
 
 -- QTD E % DE LIVROS POR AREA DE CONHECIMENTO?
 CREATE VIEW qtd_de_livros_por_area_do_conhecimento as
-SELECT upper(a.nome) "AREA DO CONHECIMENTO", count(al.area_do_conhecimento_cod_area_do_conhecimento) "QTD LIVROS POR AREA DO CONHECIMENTO", concat(ROUND(COUNT(al.area_do_conhecimento_cod_area_do_conhecimento)*100/(SELECT COUNT(*) FROM editora_pinga.livro),2), "%") "% DE LIVROS POR AREA DO CONHECIMENTO" from editora_pinga.livro_area_do_conhecimento al
+SELECT upper(a.nome) "AREA DO CONHECIMENTO", count(al.area_do_conhecimento_cod_area_do_conhecimento) "QTD LIVROS POR AREA DO CONHECIMENTO", 
+concat(ROUND(COUNT(al.area_do_conhecimento_cod_area_do_conhecimento)*100/(SELECT COUNT(*) FROM editora_pinga.livro),2), "%") "% DE LIVROS POR AREA DO CONHECIMENTO" 
+from editora_pinga.livro_area_do_conhecimento al
 INNER JOIN area_do_conhecimento a on a.codigo = al.area_do_conhecimento_cod_area_do_conhecimento
 group by al.area_do_conhecimento_cod_area_do_conhecimento
 order by count(al.area_do_conhecimento_cod_area_do_conhecimento) desc;
@@ -16,7 +18,8 @@ order by count(al.area_do_conhecimento_cod_area_do_conhecimento) desc;
 
 -- QTD E % DE LIVROS POR AUTOR 
 CREATE VIEW qtd_livros_por_autor as
-select upper(a.nome) "AUTOR", COUNT(la.livro_id_livro) "QTD LIVRO POR AUTOR", CONCAT(ROUND(COUNT(la.livro_id_livro)*100/(select count(*) from editora_pinga.livro),2),"%") "% DE LIVROS POR AUTOR"
+select upper(a.nome) "AUTOR", COUNT(la.livro_id_livro) "QTD LIVRO POR AUTOR", CONCAT(ROUND(COUNT(la.livro_id_livro)*100/(select count(*) 
+from editora_pinga.livro),2),"%") "% DE LIVROS POR AUTOR"
 FROM editora_pinga.autor a inner join editora_pinga.livro_autor la on a.idautor = la.autor_idautor
 group by a.nome
 order by a.nome desc;
