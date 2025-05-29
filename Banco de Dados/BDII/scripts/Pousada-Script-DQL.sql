@@ -392,15 +392,23 @@ create function valeTransporte(pCPF varchar(14))
     
     
 
-    
+select upper(f.nome) as "Funcionário", f.cpf "CPF", 
+	concat("R$ ", format(f.salario, 2, 'de_DE')) "Salário Bruto",
+	concat("R$ ", format(count(d.cpf) * 180, 2, 'de_DE')) "Auxílio Creche",
+    concat("R$ ", format(valeTransporte(f.cpf), 'de_DE')) "Vale Transporte"
+		from funcionario f
+			left join vdepauxcreche d on d.Funcionario_cpf = f.cpf
+				group by f.cpf
+					order by f.nome;
 
 
 
 
+delimiter $$
+create function AuxiSaude(pDataNasc)
+	returns 
 
-
-    
-    
+delimiter ;
     
     
 
