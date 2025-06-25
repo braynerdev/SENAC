@@ -438,6 +438,14 @@ CREATE TABLE IF NOT EXISTS `editora_pinga`.`venda` (
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
+CREATE TABLE log_tabela_pedido (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  tipo VARCHAR(30) NOT NULL,
+  cliente_idcliente INT,
+  FOREIGN KEY (cliente_idcliente) REFERENCES cliente(idcliente)
+);
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
